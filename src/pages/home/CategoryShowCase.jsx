@@ -52,7 +52,7 @@ const ProductData = [
   },
   {
     imgUrl: "src/assets/images/categoryTab/06.jpg",
-    cate: "Beauty",
+    cate: "Beauty", 
     title: "COSRX Snail Mucin",
     author: "assets/images/course/author/06.jpg",
     brand: "Zaara",
@@ -114,7 +114,7 @@ const CategoryShowCase = () => {
             </ul>
           </div>
         </div>
-
+ 
         {/* section body */}
         <div className="section-wrapper">
           <div className="row g-4 justify-content-center row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 course-filter">
