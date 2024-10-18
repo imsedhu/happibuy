@@ -1,32 +1,76 @@
-import React from 'react'
-import { Button} from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { NavLink } from "react-router-dom";
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
+import logo from "../assets/images/logo/logo.png"
 
 const NavbarSection = () => {
+  const [menuToggle, setMenuToggle] = useState(false);
+  const [socialToggle, setSocialToggle] = useState(false);
+  const [headerFixed, setHeaderFixed] = useState(false);
+
+  //addevent listener
+window.addEventListener("scroll",()=>{
+  if(window.scrollY > 200){
+    setHeaderFixed(true);
+  }else{
+    setHeaderFixed(false)
+  }
+})
+  
   return (
-    <>
-    <Navbar collapseOnSelect expand="lg" className="header-section style-4">
-      <Container>
-        <img src="/favicon.ico" alt="happibuy" width={60} className='me-0' />
-        <Navbar.Brand href="#home" className='me-auto fw-bold fst-italic  fs-2 text-primary'>HAPPIBUY</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto">
-            <NavLink to="/" className='me-4 fw-medium  text-black fs-5 px-3   '>Home</NavLink>
-            <NavLink to="/shop" className='me-4 fw-medium  text-black fs-5  px-3 '>Shop</NavLink>
-            <NavLink to="/blog" className='me-4 fw-medium  text-black fs-5 px-3 '>Blog</NavLink>
-            <NavLink to="/contact" className='me-4 fw-medium  text-black fs-5 px-3 '>Contact</NavLink>
-            <NavLink to="/about"className='me-4 fw-medium  text-black  fs-5 px-3 '>About</NavLink>
-          </Nav>
-          <Button className='btn-warning   me-4 fw-medium fs-5     '>Signup</Button>
-          <button className='btn btn-outline-success   me-2 fw-medium fs-5  '>Login</button>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-    </>
+   <header className={`header-section style-4 ${headerFixed ? "header-fixed fadeInUp" : ""}`}>
+    {/* header top start */}
+    <div className={`header-top d-md-none ${socialToggle ? "open" : ""}`}>
+      <div className="container">
+        <div className="header-top-area">
+          <Link to="/signup" className='lab-btn me-3'><span>Craete Account</span></Link>
+          <Link to="/login">Log in</Link>
+        </div>
+      </div>
+    </div>
+
+    {/* header bottom */}
+    <div className="header-bottom">
+      <div className="container">
+        <div className="header-wrapper">
+          {/* logo */}
+          <div className="logo-search-acte">
+            <Link to={"/"}>
+            <img src={logo} alt="" />
+            </Link>
+          </div>
+
+          {/* menu area */}
+          <div className="menu-area">
+            <div className="menu">
+              <ul className={`lab-ul ${menuToggle ? "active" : ""}`}>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/shop">Shop</Link></li>
+                <li><Link to="/blog">Blog</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/Contact">Contact</Link></li>
+              </ul>
+            </div>
+
+            {/* sign in & log in */}
+            <Link to='/sign-up'className='lab-btn me-3 d-none d-md-block'>Create Account</Link>
+            <Link to='/login' className='d-none d-md-block'>Log In</Link>
+
+            {/* menu toggler */}
+            <div onClick={()=>setMenuToggle(!menuToggle)} className={`header-bar d-lg-none ${menuToggle ? "active" : ""}`}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            {/* social toggle */}
+            <div className="ellepsis-bar d-md-none" onClick={()=> setSocialToggle(!socialToggle)}>
+              <i className='icofont-info-square'></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </header>
   )
 }
 
