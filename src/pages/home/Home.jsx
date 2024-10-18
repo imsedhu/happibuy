@@ -5,6 +5,8 @@ import CategoryShowCase from './CategoryShowCase'
 import Register from './Register'
 import ClientLocation from './ClientLocation'
 import AboutUs from './AboutUs'
+import AppSection from './AppSection'
+import Sponser from './Sponser'
 
 const Home = () => {
   return (
@@ -15,6 +17,8 @@ const Home = () => {
     <Register />
     <ClientLocation />
     <AboutUs />
+    <AppSection /> 
+    <Sponser />
     </>
   )
 }
