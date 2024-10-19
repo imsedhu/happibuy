@@ -1,8 +1,11 @@
 import React from 'react'
+import PageHeader from '../../components/PageHeader'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div>
+      <PageHeader title={"Contact Page"} currentPage={"Contact"} />
+    </div>
   )
 }
 
