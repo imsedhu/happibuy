@@ -24,6 +24,7 @@ import Shop from './pages/shop/Shop.jsx';
 import Blog from './pages/blog/Blog.jsx';
 import Contact from './pages/contact/Contact.jsx';
 import About from './pages/about/About.jsx';
+import SingleProduct from './pages/shop/SingleProduct.jsx';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,14 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />
+      },
+      {
+        path: "/about",
+        element: <About />
+      },
+      {
+        path: "shop/:id",
+        element: <SingleProduct />
       },
     ]
   },
