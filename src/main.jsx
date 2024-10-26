@@ -26,6 +26,7 @@ import Contact from './pages/contact/Contact.jsx';
 import About from './pages/about/About.jsx';
 import SingleProduct from './pages/shop/SingleProduct.jsx';
 import CartPage from './pages/shop/CartPage.jsx';
+import SingleBlog from './pages/blog/SingleBlog.jsx';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog />
+      },
+      {
+        path: "/blog/:id",
+        element: <SingleBlog />
       },
       {
         path: "/contact",
