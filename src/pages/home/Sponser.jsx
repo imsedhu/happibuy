@@ -12,22 +12,22 @@ import { Autoplay, Pagination } from 'swiper/modules';
 
 const sponsorList = [
   {
-    imgUrl: "/01.png",
+    imgUrl: "/images/sponsor/01.png",
   },
   {
-    imgUrl: "/02.png",
+    imgUrl: "/images/sponsor/02.png",
   },
   {
-    imgUrl: "/03.png",
+    imgUrl: "/images/sponsor/03.png",
   },
   {
-    imgUrl: "/04.png",
+    imgUrl: "/images/sponsor/04.png",
   },
   {
-    imgUrl: "/05.png",
+    imgUrl: "/images/sponsor/05.png",
   },
   {
-    imgUrl: "/06.png",
+    imgUrl: "/images/sponsor/06.png",
   },
 ];
 
