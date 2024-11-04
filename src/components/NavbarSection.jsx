@@ -2,15 +2,25 @@ import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import logo from "../assets/images/logo/logo.png"
 import { AuthContext } from '../contexts/AuthProvider';
+import { NavDropdown } from "react-bootstrap";
 
 const NavbarSection = () => {
   const [menuToggle, setMenuToggle] = useState(false);
   const [socialToggle, setSocialToggle] = useState(false);
   const [headerFixed, setHeaderFixed] = useState(false);
 
-  //authInfo
-  const {user} = useContext(AuthContext)  
-  console.log(user)
+  // check if user is register
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   //addevent listener
 window.addEventListener("scroll",()=>{
@@ -56,9 +66,48 @@ window.addEventListener("scroll",()=>{
               </ul>
             </div>
 
-            {/* sign in & log in */}
-            <Link to='/sign-up'className='lab-btn me-3 d-none d-md-block'>Create Account</Link>
-            <Link to='/login' className='d-none d-md-block'>Log In</Link>
+            {/* users when user available */}
+            {user ? (
+                <>
+                  <div>
+                    {user?.photoURL ? (
+                      <>
+                        <img src={user?.photoURL} className="nav-profile" />
+                      </>
+                    ) : (
+                      <img
+                        src="/src/assets/images/author/01.jpg"
+                        className="nav-profile"
+                      />
+                    )}
+                  </div>
+                  <NavDropdown id="basic-nav-dropdown">
+                    <NavDropdown.Item href="#action/3.1" onClick={handleLogout}>
+                      Logout
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/cart-page">
+                      Shopping Cart
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">
+                      Profile
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/cart-page">Order</NavDropdown.Item>
+                  </NavDropdown>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/sign-up"
+                    className="lab-btn me-3 d-none d-md-block"
+                  >
+                    <span>Create Account</span>
+                  </Link>
+                  <Link to="/login" className="d-none d-md-block">
+                    Log In
+                  </Link>
+                </>
+              )}
 
             {/* menu toggler */}
             <div onClick={()=>setMenuToggle(!menuToggle)} className={`header-bar d-lg-none ${menuToggle ? "active" : ""}`}>
