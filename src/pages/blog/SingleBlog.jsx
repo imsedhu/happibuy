@@ -121,7 +121,7 @@ const SingleBlog = () => {
                                 </p>
 
                                 <img
-                                  src="/src/assets/images/blog/single/01.jpg"
+                                  src="/images/blog/single/01.jpg"
                                   alt=""
                                 />
 
@@ -141,7 +141,7 @@ const SingleBlog = () => {
 
                                 <div className="video-thumb">
                                   <img
-                                    src="/src/assets/images/blog/single/02.jpg"
+                                    src="/images/blog/single/02.jpg"
                                     alt=""
                                   />
                                   <a

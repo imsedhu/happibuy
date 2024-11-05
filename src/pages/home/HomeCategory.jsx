@@ -37,7 +37,7 @@ const categoryList = [
     title: "Colorful Bags",
   },
   {
-    imgUrl: "/public/images/category/06.jpg",
+    imgUrl: "/images/category/06.jpg",
     imgAlt: "category rajibraj91 rajibraj",
     iconName: "icofont-brand-windows",
     title: "Home Decor",
